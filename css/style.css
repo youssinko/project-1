@@ -1,11 +1,66 @@
+.hide{
+    display: none;
+}
 .animate__animated{
-color:rgba(255, 217, 0, 0.919);
+color:rgb(255, 217, 0);
 text-align: center;
 font-size: 100px;
 }
 body{
     background-color: rgba(255, 0, 0, 0.702);
+    color:rgb(255, 217, 0) ;
 }
 #gif{
+    border-width: 10px;  
     text-align: center;
+
+}
+.player1-container{
+    text-align: center;
+    font-size: 40px;
+    
+}
+.player2-container{
+    text-align: center;
+    font-size: 40px;
+    
+}
+#symbols{
+    width: 50px;
+    text-align: center;
+
+}
+.enter-btn{
+   width: 80px;
+   font-size: 20px;
+    
+}
+
+.btn-container{
+    text-align: center;
+}
+.enter-btn:hover{
+    background-color: greenyellow;
+}
+.play-btn{
+    width: 80px;
+   font-size: 20px;
+}
+.display{
+    position: relative;
+}
+.display-name{
+    position: absolute;
+    border-width: 30px;
+    bottom: 0;
+    left: 0;
+    
+}
+.display2-name{
+    position: absolute;
+    border-width: 30px;
+    bottom: 0;
+    right: 0;
+    border-width: 30px;
+      
 }
