@@ -1,3 +1,6 @@
+*{
+    font-family: 'Games', sans-serif;
+}
 .hide{
     display: none;
 }
@@ -19,6 +22,7 @@ body{
     text-align: center;
     font-size: 40px;
     
+    
 }
 .player2-container{
     text-align: center;
@@ -28,12 +32,19 @@ body{
 #symbols{
     width: 50px;
     text-align: center;
+    padding: 5px;px;
 
 }
 .enter-btn{
    width: 80px;
    font-size: 20px;
+   color: black;
     
+}
+.enter2-btn{
+    width: 80px;
+   font-size: 20px;
+   color: black;
 }
 
 .btn-container{
@@ -42,9 +53,18 @@ body{
 .enter-btn:hover{
     background-color: greenyellow;
 }
+.enter2-btn:hover{
+    background-color: greenyellow;
+}
 .play-btn{
-    width: 80px;
-   font-size: 20px;
+    width: 150px;
+   font-size: 40px;
+   text-align: center;
+   padding: 20px;
+
+}
+.play-btn:hover{
+    background-color: greenyellow;
 }
 .display{
     position: relative;
@@ -54,7 +74,8 @@ body{
     border-width: 30px;
     bottom: 0;
     left: 0;
-    
+    font-family: 'Games', sans-serif;
+    font-size: 40px;
 }
 .display2-name{
     position: absolute;
@@ -62,5 +83,9 @@ body{
     bottom: 0;
     right: 0;
     border-width: 30px;
-      
+    font-family: 'Games', sans-serif;
+    font-size: 40px;
+}
+input{
+    text-align: center;
 }

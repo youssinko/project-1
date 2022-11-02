@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://fonts.cdnfonts.com/css/games" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script defer src="./js/script.js"></script>
@@ -25,19 +26,16 @@
     </div>
     
     <div class="btn-container">
-    <div id="gif">
-        <!-- <img src="./images/tic_tac_toe_loader_.gif" alt=""> -->
-        <img src="./images/ScratchySoulfulFoal-max-1mb.gif" alt="">
+    <div class="loader">
+        <img src="./images/tic_tac_toe_loader_.gif" alt="">
     </div>
-
-    
 
         <div class="player1-container">
             <div>
-                <label for="p1Name">Player 1 Name:</label>
+                <label for="p1Name">Player 1 Name : </label>
                 <input type="text" name="p1Name" id="p1Name">
             </div>
-            <label for="options">Choose Your Symbol:</label>
+            <label for="options">Choose Your Symbol : </label>
             <select name="" id="symbols">
                 <option value="X">X</option>
                 <option value="O">O</option>
@@ -48,13 +46,15 @@
         <div class="player2-container hide">
             <form>
             <div>
-                <label for="p2Name">Player 2 Name:</label>
+                <label for="p2Name">Player 2 Name :</label>
                 <input type="text" name="p2Name" id="p2Name">
             </div>
          </form>
         </div>
 
-        <button class="enter-btn">Enter</button>
+        <button class="enter-btn animate__animated animate__shakeX">Enter</button>
+        <button class="enter2-btn hide animate__animated animate__shakeX"">Enter</button>
+
         <div>
             <p class="ready"></p>
         <button class="play-btn hide" >Play</button>
