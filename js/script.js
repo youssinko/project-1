@@ -29,6 +29,7 @@ const winConditions = [
     [2, 4, 6]
 
 ]
+
 let options = ['', '', '', '', '', '', '', '', '']
 let currentPlayer = "X"
 
@@ -77,10 +78,10 @@ function disableSymbol(disableOption) {
     console.log(disableOption.value)
     if (disableOption.value == 'X') {
         selectedSymbol = 'O'
-        secondSymbol.textContent = `Your Symbol is "O" `
+        secondSymbol.textContent = `Your Symbol is ${selectedSymbol} `
     } else {
         selectedSymbol = 'X'
-        secondSymbol.textContent = `Your Symbol is "X" `
+        secondSymbol.textContent = `Your Symbol is ${selectedSymbol} `
 
     }
 
@@ -103,37 +104,70 @@ function startGame() {
 function cellclicked() {
 
     const cellIndex = this.getAttribute('cellIndex')
-   
+
     //if cell is emply or game is not running, don't do anything
     if (options[cellIndex] !== '' || !gameIsRunning) {
         return
     }
     else {
         updatecell(this, cellIndex)
-        switchPlayer()
-        // checkWinner()
+        winner()
 
     }
 }
-function updatecell(cell,index) {
-options[index] = currentPlayer;
-cell.textContent = currentPlayer;
+function updatecell(cell, index) {
+    options[index] = currentPlayer;
+    cell.textContent = currentPlayer;
 }
 
 
 function switchPlayer() {
-  if(currentPlayer == 'X'){
-    currentPlayer = 'O'
-    statusText.textContent = `${currentPlayer}'s Turn`
-    }else{
+    if (currentPlayer == 'X') {
+        currentPlayer = 'O'
+        statusText.textContent = `${currentPlayer}'s Turn`
+    } else {
         currentPlayer = 'X'
-     statusText.textContent = `${currentPlayer}'s Turn`
+        statusText.textContent = `${currentPlayer}'s Turn`
     }
 
 }
-// function winner() {
+function winner() {
+    let roundWon = false;
+    //iterate winCondition
+    for (let i = 0; i < winConditions.length; i++) {
+        const condition = winConditions[i];
+        console.log(winConditions)
+        const cellA = options[condition[0]]
+        const cellB = options[condition[1]]
+        const cellC = options[condition[2]]
+        if (cellA == '' || cellB == '' || cellC == '') {
+            continue;
+        }
+        if (cellA == cellB && cellB == cellC) {
+            roundWon = true;
+            break;
+        }
+    }
+    //outside for loop
+    if (roundWon === true) {
+        statusText.textContent = `${currentPlayer} wins!`
+        gameIsRunning = false
+    }
+    else if (!options.includes('')) {
+        statusText.textContent = 'Draw!'
+        gameIsRunning = false;
+    }
+    else{
+        switchPlayer()
+    }
+}
 
-// }
-// function restartGame() {
 
-// }
+function restartGame() {
+   options = ['', '', '', '', '', '', '', '', '']
+    currentPlayer = "X";
+    statusText.textContent = `${currentPlayer}'s turn`
+cells.forEach(cell => 
+    cell.textContent = '')
+    gameIsRunning = true
+}
