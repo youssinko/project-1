@@ -28,11 +28,14 @@ body{
     
 }
 #symbols{
-    width: 50px;
+    width: 100px;
     text-align: center;
     padding: 5px;
    
 
+}
+#secondSymbol{
+        text-align: center;   
 }
 .loader{
     text-align: center;
@@ -101,6 +104,9 @@ input{
     text-align: center;
 }
 #p1Name{
+    margin-bottom: 100px;
+}
+#p2Name{
     margin-bottom: 100px;
 }
 .btn-container{

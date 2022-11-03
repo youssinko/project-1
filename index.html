@@ -13,71 +13,73 @@
 </head>
 
 <body>
-    <div class="back-frem"></div>
 
     <h1 class="animate__animated animate__bounce">Tic-Tac-Toe</h1>
 
 
     <div class="display">
         <div>
-        <h1 class="display-name"></h1>
+            <h1 class="display-name"></h1>
         </div>
         <div>
-        <h1 class="display2-name"></h1>
+            <h1 class="display2-name"></h1>
         </div>
     </div>
     <div class="game-container hide">
         <div class="board-container ">
-        <div cellIndex= "0" class="cell" ></div>
-        <div cellIndex= "1" class="cell" ></div>
-        <div cellIndex= "2" class="cell" ></div>
-        <div cellIndex= "3" class="cell" ></div>
-        <div cellIndex= "4" class="cell" ></div>
-        <div cellIndex= "5" class="cell" ></div>
-        <div cellIndex= "6" class="cell" ></div>
-        <div cellIndex= "7" class="cell" ></div>
-        <div cellIndex= "8" class="cell" ></div>
+            <div cellIndex="0" class="cell">x</div>
+            <div cellIndex="1" class="cell">0</div>
+            <div cellIndex="2" class="cell">xx</div>
+            <div cellIndex="3" class="cell">00</div>
+            <div cellIndex="4" class="cell">xxx</div>
+            <div cellIndex="5" class="cell">000</div>
+            <div cellIndex="6" class="cell">xxxx</div>
+            <div cellIndex="7" class="cell">00000</div>
+            <div cellIndex="8" class="cell">xxxxxxx</div>
         </div>
-    
-    <h2 id="statusText"></h2>
-   </div>
+
+        <h2 id="statusText"></h2>
+    </div>
     <button class="restartBtn hide">Start</button>
     <div class="loader">
         <img src="./images/tic_tac_toe_loader_.gif" alt="">
     </div>
-   
+
     <div class="player1-container">
         <form>
-        <div>
+            <div>
                 <label for="p1Name">Player 1 Name : </label>
                 <input type="text" name="p1Name" id="p1Name">
-        </div>
-                <label for="options">Choose Your Symbol : </label>
-                <select name="" id="symbols">
+            </div>
+            <label for="options">Choose Your Symbol : </label>
+            <select name="" id="symbols" onchange="disableSymbol(this)">
+                <option value="" selected disabled hidden>Select</option>
                 <option value="X">X</option>
                 <option value="O">O</option>
-                </select>
+            </select>
         </form>
-     </div>
+    </div>
 
     <div class="player2-container hide">
-            <form>
-        <div>
+        <form>
+            <div>
                 <label for="p2Name">Player 2 Name :</label>
                 <input type="text" name="p2Name" id="p2Name">
-                <label id="secondSymbol" >Choose Your Symbol : </label>
-        </div>
-             </form>
+            </div>
+            <div id="secondSymbol">
+            <p></p>
+            </div>
+        </form>
     </div>
     <div class="btn-container">
         <button class="enter-btn animate__animated animate__shakeX">Enter</button>
         <button class="enter2-btn hide animate__animated animate__shakeX"">Enter</button>
 
         
-        <button class="play-btn hide animate__animated animate__heartBeat" >Play</button>
+        <button class=" play-btn hide animate__animated animate__heartBeat">Play</button>
     </div>
-    
-</div>
+
+    </div>
 </body>
 
 </html>

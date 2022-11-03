@@ -15,6 +15,8 @@ const statusText = document.querySelector("#statusText")
 // const restartBtn = document.querySelector("#.restartBtn")
 const playBtn = document.querySelector(".play-btn")
 const secondSymbol = document.querySelector("#secondSymbol")
+const xEl=document.querySelector(".xEl")
+const oEl=document.querySelector(".oEl")
 
 const winConditions =[
     [0,1,2],
@@ -43,24 +45,16 @@ player2Container.classList.toggle('hide');
 enterBtn.classList.add('hide')
 enter2Btn.classList.remove('hide')
 
-
 }
 
 
 enterBtn.addEventListener('click',enter)
-// function optionselectionEl(){
-//     if (selectionEl.value === "X"){
-//         p2Name.textContent = "O"
-        
-//     }
-// }
 
-//console.log(selectionEl.value)
 //========================= second enter button function ================
 
 function enter2(){
 
-    display2Name.innerHTML = `Player 2 : ${p2Name.value.toUpperCase()} <br> Symbol : ${selectionEl.value}`;
+    display2Name.innerHTML = `Player 2 : ${p2Name.value.toUpperCase()} <br> Symbol : ${selectedSymbol}`;
     enter2Btn.classList.add('hide')
     player2Container.classList.toggle('hide')
     playBtn.classList.remove('hide');
@@ -76,36 +70,55 @@ function play(){
     playBtn.classList.add('hide')
 }  
 playBtn.addEventListener('click',play)
+//========================= create function when player 1 select symbol, player 2 assigned automatically to the second symbol =========
+let selectedSymbol =''
+function disableSymbol(disableOption){
+console.log(disableOption.value)
+if(disableOption.value == 'X'){
+     selectedSymbol = 'O'
+    secondSymbol.textContent = `Your Symbol is "O" ` 
+}else{
+     selectedSymbol = 'X'
+    secondSymbol.textContent = `Your Symbol is "X" `
 
+}
 
-//================= creating game functions ==============
+}
+//================================= game functions =========================
+
 //function to check each cell and pass on cellclicked function to clicked cell
-// startGame()
-// function startGame(){
-//     cells.forEach(()=>{
-// cells.addEventListener('click',cellclicked);
-// restartBtn.addEventListener('click',restartGame);
-// statusText.textContent = `${currentPlayer}'s turn`
-//     })
-// }
-// function cellclicked(){
-//     //get attribute of each cell to check if cell is empty 
-//     //only update cell if it's empty
-// const cellIndex = this.getattribute('cellIndex')
-// if (options)
-// }
-// function restartGame(){
+startGame()
+function startGame(){
+    cells.forEach((cell)=>{
+cell.addEventListener('click',cellclicked);
+restartBtn.addEventListener('click',restartGame);
+statusText.textContent = `${currentPlayer}'s turn`
+    })
+}
 
-// }
-// function updatecell(){
+//function where we can get attribute of each cell to check if cell is empty and only update cell if it's empty
 
-// }
-// function switchPlayer(){
+function cellclicked(){
+    
+const cellIndex = this.getattribute('cellIndex')
+    //if cell is emply or game is not running, don't do anything
+if (options[cellIndex]!== '' || !gameIsRunning){
+return
+}
+updatecell(this, cellIndex)
+}
+function restartGame(){
 
-// }
-// function winner(){
+}
+function updatecell(){
 
-// }
-// function restartGame(){
+}
+function switchPlayer(){
 
-// }
+}
+function winner(){
+
+}
+function restartGame(){
+
+}
