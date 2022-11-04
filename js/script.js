@@ -223,7 +223,7 @@ cells.forEach(cell =>
    
 }
 //function where when time is out computer will randomly plays for u
-let computerMoves = []
+//let computerMoves = []
 function randomCell(){
     random = Math.floor(Math.random() * (cells.length) )
     return random
@@ -238,7 +238,7 @@ function randomCell(){
        else{
         cells[random].textContent= currentPlayer
         cells.textContent = currentPlayer
-   
+        switchPlayer()
       }     
         
     }
