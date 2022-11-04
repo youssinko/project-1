@@ -108,7 +108,8 @@ function startGame() {
 //function where we can get attribute of each cell to check if cell is empty and only update cell if it's empty
 
 function cellclicked() {
-
+    // let timeSecond = 10;
+    // setTimer()
     const cellIndex = this.getAttribute('cellIndex')
 
     //if cell is empty or game is not running, don't do anything
@@ -117,9 +118,10 @@ function cellclicked() {
         return
     }
     else {
+        //cells.classList.toggle('notclicked')
         updatecell(this, cellIndex)
         winner()
-       
+        
     }
     
 }
@@ -183,7 +185,8 @@ function winner() {
 }
 
 //coundown function
-function setTimer(countdown){
+function setTimer(){
+    
     countdown = setInterval(()=>{
    timeSecond--;
    timer.innerHTML=`00:0${timeSecond}`;
@@ -198,6 +201,8 @@ function setTimer(countdown){
     
    }
 },1000)
+
+
 }
 ///function to statement notifying time is out
 function endtime(){
@@ -221,21 +226,24 @@ cells.forEach(cell =>
 let computerMoves = []
 function randomCell(){
     random = Math.floor(Math.random() * (cells.length) )
-    return cells[random]
+    return random
 }
   function randomPlay(){
   
-   let random = randomCell()
-    for (let i = 0 ; i < cells.length ; i++){
-        if(cells.textContent !==""){
-            return
+       
+        let random = randomCell()
+        if(cells[random].textContent !== ""){
+            randomPlay() 
         }
        else{
-        cells[random]
-       }     
+        cells[random].textContent= currentPlayer
+        cells.textContent = currentPlayer
+   
+      }     
         
     }
-}
+
+
     // options[random]= currentPlayer
     // //console.log(random)
   
