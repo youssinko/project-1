@@ -139,3 +139,20 @@ input{
 .game-container{
     text-align: center;
 }
+.restart-btn{
+    width: 150px;
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(255, 217, 0);
+    color: black;
+    margin-top: 200px;
+}
+.restart-btn :hover{
+   
+        background-color: greenyellow;
+    }
+
+#time{
+font-size: 30px;
+}

@@ -12,11 +12,13 @@ const gif = document.querySelector(".loader")
 const gameEl = document.querySelector(".game-container")
 const cells = document.querySelectorAll(".cell")
 const statusText = document.querySelector("#statusText")
-// const restartBtn = document.querySelector("#.restartBtn")
+const restartBtn = document.querySelector(".restart-btn")
 const playBtn = document.querySelector(".play-btn")
 const secondSymbol = document.querySelector("#secondSymbol")
-const xEl = document.querySelector(".xEl")
-const oEl = document.querySelector(".oEl")
+const timer = document.querySelector("#time")
+const notClicked = document.querySelector('.notclicked')
+let timeSecond = 10;
+timer.innerHTML=`00:${timeSecond}`
 
 const winConditions = [
     [0, 1, 2],
@@ -61,6 +63,7 @@ function enter2() {
     player2Container.classList.toggle('hide')
     playBtn.classList.remove('hide');
     gif.classList.add('hide')
+    
 
 }
 
@@ -70,6 +73,7 @@ function play() {
     gameEl.classList.remove('hide')
     // document.querySelector('body').style.background = "URL(./images/stick-figure.gif)";
     playBtn.classList.add('hide')
+    setTimer()
 }
 playBtn.addEventListener('click', play)
 //========================= create function when player 1 select symbol, player 2 assigned automatically to the second symbol =========
@@ -93,10 +97,12 @@ startGame()
 function startGame() {
     cells.forEach((cell) => {
         cell.addEventListener('click', cellclicked);
-        // restartBtn.addEventListener('click', restartGame);
+        restartBtn.addEventListener('click', restartGame);
         statusText.textContent = `${currentPlayer}'s turn`;
         gameIsRunning = true
+        
     })
+    
 }
 
 //function where we can get attribute of each cell to check if cell is empty and only update cell if it's empty
@@ -105,38 +111,46 @@ function cellclicked() {
 
     const cellIndex = this.getAttribute('cellIndex')
 
-    //if cell is emply or game is not running, don't do anything
+    //if cell is empty or game is not running, don't do anything
+    //
     if (options[cellIndex] !== '' || !gameIsRunning) {
         return
     }
     else {
         updatecell(this, cellIndex)
         winner()
-
+       
     }
+    
 }
+//function to updatecell  with the currentPlayer when clicked
 function updatecell(cell, index) {
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
+    
 }
 
-
+//function to switch players if below conditions are false
 function switchPlayer() {
     if (currentPlayer == 'X') {
         currentPlayer = 'O'
         statusText.textContent = `${currentPlayer}'s Turn`
+        
     } else {
         currentPlayer = 'X'
         statusText.textContent = `${currentPlayer}'s Turn`
+        
     }
 
 }
+
+//function to check winner
 function winner() {
     let roundWon = false;
     //iterate winCondition
     for (let i = 0; i < winConditions.length; i++) {
         const condition = winConditions[i];
-        console.log(winConditions)
+        //console.log(winConditions)
         const cellA = options[condition[0]]
         const cellB = options[condition[1]]
         const cellC = options[condition[2]]
@@ -150,19 +164,47 @@ function winner() {
     }
     //outside for loop
     if (roundWon === true) {
-        statusText.textContent = `${currentPlayer} wins!`
+        document.querySelector('body').style.backgroundImage = "URL(./images/img1.gif)"
+        statusText.textContent = `${currentPlayer} wins!` 
         gameIsRunning = false
+       
+        
+        
     }
     else if (!options.includes('')) {
         statusText.textContent = 'Draw!'
         gameIsRunning = false;
+        restartBtn.addEventListener('click', restartGame);
+        
     }
     else{
         switchPlayer()
     }
 }
 
+//coundown function
+function setTimer(countdown){
+    countdown = setInterval(()=>{
+   timeSecond--;
+   timer.innerHTML=`00:0${timeSecond}`;
+   if(timeSecond <=0 || timeSecond < 1){
+       endtime()
+       clearInterval(countdown)
+       
+       randomPlay()
+      
+   }else if(gameIsRunning == false){
+    clearInterval(countdown)
+    
+   }
+},1000)
+}
+///function to statement notifying time is out
+function endtime(){
+   timer.innerHTML = `TIME OUT ... Computer will Play for You`
+}
 
+//restart button function to empty cells for the next round
 function restartGame() {
    options = ['', '', '', '', '', '', '', '', '']
     currentPlayer = "X";
@@ -170,4 +212,38 @@ function restartGame() {
 cells.forEach(cell => 
     cell.textContent = '')
     gameIsRunning = true
+    document.querySelector('body').style.background = ""
+    //clearInterval(countdown)
+     //setTimer()
+   
 }
+//function where when time is out computer will randomly plays for u
+let computerMoves = []
+function randomCell(){
+    random = Math.floor(Math.random() * (cells.length) )
+    return cells[random]
+}
+  function randomPlay(){
+  
+   let random = randomCell()
+    for (let i = 0 ; i < cells.length ; i++){
+        if(cells.textContent !==""){
+            return
+        }
+       else{
+        cells[random]
+       }     
+        
+    }
+}
+    // options[random]= currentPlayer
+    // //console.log(random)
+  
+    // cells.textContent = currentPlayer
+    // console.log(currentPlayer)
+   //if (options[random] !== '' || !gameIsRunning)
+   //}
+// //need to pick a random index and if cell is empty, computer can place symbol
+
+ //randomPlay()
+//setTimer()
