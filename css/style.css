@@ -156,3 +156,6 @@ input{
 #time{
 font-size: 30px;
 }
+#statusText{
+    font-size: 40px;
+}
