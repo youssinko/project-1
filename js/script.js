@@ -16,8 +16,8 @@ const restartBtn = document.querySelector(".restart-btn")
 const playBtn = document.querySelector(".play-btn")
 const secondSymbol = document.querySelector("#secondSymbol")
 const timer = document.querySelector("#time")
-
-let timeSecond = 10;
+const notClicked = document.querySelector('.notclicked')
+let timeSecond = 5;
 
 
 const winConditions = [
@@ -82,6 +82,7 @@ function play() {
 playBtn.addEventListener('click', play)
 //========================== 'restart' button function to empty cells for the next round ========
 function restartGame() {
+    setTimer()
     options = [
         '', '', '',
         '', '', '',
@@ -92,7 +93,7 @@ function restartGame() {
         cell.textContent = '')
     gameIsRunning = true
     document.querySelector('body').style.background = ""
-    timeSecond = 10
+    timeSecond = 5
 
 }
 //========================= create function when player 1 select symbol, player 2 assigned automatically to the second symbol =========
@@ -114,11 +115,12 @@ function disableSymbol(disableOption) {
 //function to check each cell and pass on cellclicked function to clicked cell
 startGame()
 function startGame() {
-        cells.forEach((cell) => {
+    // setTimer()
+    cells.forEach((cell) => {
         cell.addEventListener('click', cellclicked);
         restartBtn.addEventListener('click', restartGame);
         statusText.textContent = `${currentPlayer}'s turn`;
-        gameIsRunning = true;
+        gameIsRunning = true
 
 
     })
@@ -130,7 +132,6 @@ function startGame() {
 function cellclicked() {
 
     const cellIndex = this.getAttribute('cellIndex')
-
 
     //if cell is empty or game is not running, don't do anything
     //
@@ -151,7 +152,7 @@ function cellclicked() {
 function updatecell(cell, index) {
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
-    timeSecond = 10
+    timeSecond = 5
 
 }
 
@@ -196,7 +197,7 @@ function winner() {
         document.querySelector('body').style.backgroundImage = "URL(./images/img1.gif)"
         statusText.textContent = `${currentPlayer} wins!`
         gameIsRunning = false
-       
+
 
 
 
@@ -206,7 +207,7 @@ function winner() {
         statusText.textContent = 'Draw!'
         gameIsRunning = false;
         restartBtn.addEventListener('click', restartGame);
-        //clearInterval(countdown)
+        clearInterval(countdown)
     }
     else {
         switchPlayer()
@@ -224,7 +225,7 @@ function setTimer() {
         if (timeSecond <= 0 || timeSecond < 1) {
             endtime()
             // clearInterval(countdown)
-            timeSecond = 10
+            timeSecond = 5
             randomPlay()
 
         }
@@ -256,17 +257,25 @@ function randomCell() {
 function randomPlay() {
 
 
+    console.log (options)
     let random = randomCell()
-    if (options[random] !== "") {
-        randomPlay()
+    console.log(random)
+    // console.log(options[random].textContent)
+    if (!options.includes("")){
+      winner()
+    }
 
+
+    else if (options[random] === "") {
+      options[random] = currentPlayer
+      cell = document.querySelector(`div[cellindex='${random}']`)
+      console.log(cell.textContent)
+      cell.textContent = currentPlayer
+      winner()
     }
 
     else {
-        options[random]= currentPlayer
-        cells.textContent = currentPlayer
-        winner()
-
+      randomPlay()
     }
     // if (!cells.textContent.includes('')){
     //     gameIsRunning = false
