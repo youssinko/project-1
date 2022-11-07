@@ -16,7 +16,7 @@ const restartBtn = document.querySelector(".restart-btn")
 const playBtn = document.querySelector(".play-btn")
 const secondSymbol = document.querySelector("#secondSymbol")
 const timer = document.querySelector("#time")
-const notClicked = document.querySelector('.notclicked')
+
 let timeSecond = 10;
 
 
@@ -114,11 +114,11 @@ function disableSymbol(disableOption) {
 //function to check each cell and pass on cellclicked function to clicked cell
 startGame()
 function startGame() {
-    cells.forEach((cell) => {
+        cells.forEach((cell) => {
         cell.addEventListener('click', cellclicked);
         restartBtn.addEventListener('click', restartGame);
         statusText.textContent = `${currentPlayer}'s turn`;
-        gameIsRunning = true
+        gameIsRunning = true;
 
 
     })
@@ -130,6 +130,7 @@ function startGame() {
 function cellclicked() {
 
     const cellIndex = this.getAttribute('cellIndex')
+
 
     //if cell is empty or game is not running, don't do anything
     //
@@ -256,13 +257,13 @@ function randomPlay() {
 
 
     let random = randomCell()
-    if (cells[random].textContent !== "") {
+    if (options[random] !== "") {
         randomPlay()
 
     }
 
     else {
-        cells[random].textContent = currentPlayer
+        options[random]= currentPlayer
         cells.textContent = currentPlayer
         winner()
 
