@@ -1,6 +1,7 @@
-*{
+*{ 
     font-family: 'Games', sans-serif;
     box-sizing: border-box;
+    
 }
 .hide{
     display: none;
@@ -13,6 +14,8 @@ font-size: 100px;
 body{
     background-color: rgba(255, 0, 0, 0.702);
     color:rgb(255, 217, 0) ;
+  
+    
 }
 
 .player1-container{
@@ -28,11 +31,15 @@ body{
     
 }
 #symbols{
-    width: 100px;
+    width: 150px;
     text-align: center;
-    padding: 5px;
+    padding: 10px;
+    font-size: 20px;
    
 
+}
+#symbols:hover{
+    background-color: greenyellow;
 }
 #secondSymbol{
         text-align: center;   
@@ -86,22 +93,28 @@ body{
 .display-name{
     position: absolute;
     border-width: 30px;
-    bottom: 0;
+    bottom: 4px;
     left: 0;
     font-size: 40px;
+    
    
 }
 .display2-name{
     position: absolute;
     border-width: 30px;
-    bottom: 0;
+    bottom: 4px;
     right: 0;
     border-width: 30px;
-    font-family: 'Games', sans-serif;
     font-size: 40px;
+    
 }
 input{
     text-align: center;
+    font-size: 25px;
+    padding: 5px;
+}
+input:hover{
+    background-color: greenyellow;
 }
 #p1Name{
     margin-bottom: 100px;
@@ -134,7 +147,7 @@ input{
     cursor: pointer;  
     background-color:rgb(255, 217, 0);
     opacity: 0.5;
-    /* transition: opacity 0.2s ease-in-out; */
+  
   }
 .game-container{
     text-align: center;

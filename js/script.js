@@ -41,9 +41,9 @@ let currentPlayer = "X"
 let gameIsRunning = false;
 
 //ENTER BUTTON FUNCTION : Player 1 get to choose symbol and input name, then input field disappears and new input for player 2 appears *
-// 2 "enter" buttons were created for each player and one play button to start the game
+// Two "enter" buttons were created for each player and one play button to start the game
 
-//====================== first 'enter' button function ======================
+//====================== First 'enter' button function ======================
 function enter() {
 
     displayName.innerHTML = `Player 1 : ${p1Name.value.toUpperCase()} <br> Symbol : ${selectionEl.value}`;//
@@ -72,6 +72,7 @@ function enter2() {
 
 enter2Btn.addEventListener('click', enter2)
 //====================================== 'Play' button =======================================
+//By pressing on Play button, play button disappears , content of the game appears and count down time starts
 function play() {
     gameEl.classList.remove('hide')
     document.querySelector('body').style.background = "URL(./images/img3.gif) no-repeat center /cover";
@@ -81,7 +82,9 @@ function play() {
 
 }
 playBtn.addEventListener('click', play)
-//========================== 'restart' button function to empty cells for the next round ========
+//========================== 'replay' button function to empty cells for the next round ========
+//emptying all cells and start new time.
+
 function restartGame() {
     setTimer()
     options = [
@@ -98,7 +101,7 @@ function restartGame() {
    timeSecond = 5
 
 }
-//========================= create function when player 1 select symbol, player 2 assigned automatically to the second symbol =========
+//========================= Create a function when player 1 select symbol, player 2 assigned automatically to the second symbol =========
 let selectedSymbol = ''
 function disableSymbol(disableOption) {
     console.log(disableOption.value)
@@ -112,7 +115,7 @@ function disableSymbol(disableOption) {
     }
 
 }
-//================================= game functions =========================
+//================================= Game functions =========================
 
 //function to check each cell and pass on cellclicked function to clicked cell
 startGame()
@@ -129,14 +132,14 @@ function startGame() {
 
 }
 
-//function where we can get attribute of each cell to check if cell is empty and only update cell if it's empty
+//============ Function where we can get attribute of each cell to check if cell is empty and only update cell if it's empty ========
 
 function cellclicked() {
 
     const cellIndex = this.getAttribute('cellIndex')
 
     //if cell is empty or game is not running, don't do anything
-    //
+    
     if (options[cellIndex] !== '' || !gameIsRunning) {
 
         return
@@ -150,20 +153,21 @@ function cellclicked() {
     }
 
 }
-//function to updatecell  with the currentPlayer when clicked
+//========= Function to updatecell with the currentPlayer and start timer when clicked ===========
 function updatecell(cell, index) {
     options[index] = currentPlayer;
     cell.textContent = currentPlayer;
+    
     timeSecond = 5
 
 }
 
-//function to switch players if below conditions are false
+//===================================== Function to switch players if below conditions are false =======================
 function switchPlayer() {
     if (currentPlayer == 'X') {
         currentPlayer = 'O'
         statusText.textContent = `${currentPlayer}'s Turn`
-
+        
 
 
     } else {
@@ -175,7 +179,7 @@ function switchPlayer() {
 
 }
 
-//function to check winner
+//====================================== Function to check winner ======================
 function winner() {
     let roundWon = false;
     //iterate winCondition
@@ -218,7 +222,7 @@ function winner() {
     }
 }
 
-//coundown function
+// =================================================== count down/timer function =====================================================
 
 function setTimer() {
 
@@ -228,7 +232,6 @@ function setTimer() {
 
         if (timeSecond <= 0 || timeSecond < 1) {
             endtime()
-            // clearInterval(countdown)
             timeSecond = 5
             randomPlay()
 
@@ -244,13 +247,13 @@ function setTimer() {
 
 
 
-///function to statement notifying time is out
+/// ================================ Function that contains statement to notify player time is out =====================
 function endtime() {
     timer.innerHTML = `TIME OUT ... Computer will Play for You`
 }
 
 
-//=========================== function when time is out, computer will randomly plays for you ============
+//=========================== Function when time is out, computer will randomly plays for you ===========================
 
 function randomCell() {
 
@@ -261,9 +264,9 @@ function randomCell() {
 function randomPlay() {
 
 
-    console.log (options)
+    //console.log (options)
     let random = randomCell()
-    console.log(random)
+   // console.log(random)
     // console.log(options[random].textContent)
     if (!options.includes("")){
       winner()
@@ -273,7 +276,7 @@ function randomPlay() {
     else if (options[random] === "") {
       options[random] = currentPlayer
       cell = document.querySelector(`div[cellindex='${random}']`)
-      console.log(cell.textContent)
+      //console.log(cell.textContent)
       cell.textContent = currentPlayer
       winner()
     }
@@ -281,7 +284,5 @@ function randomPlay() {
     else {
       randomPlay()
     }
-    // if (!cells.textContent.includes('')){
-    //     gameIsRunning = false
-    // }
+    
 }
