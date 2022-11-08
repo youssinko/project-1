@@ -1,6 +1,6 @@
 *{ 
     font-family: 'Games', sans-serif;
-    src: url("./project-1/css/games/Games.ttf");
+    /* src:url("./css/games/Games-Italic.ttf"); */
     box-sizing: border-box;
     
 }
@@ -8,14 +8,14 @@
     font-family: 'Games';
     font-style: normal;
     font-weight: 400;
-    src: local('Games'), url('https://fonts.cdnfonts.com/s/14926/Games.woff') format('woff');
+    src: local('Games'), url('/css/games/Games-Italic.ttf') format('woff');
 }
-@font-face {
+/* @font-face {
     font-family: 'Games';
     font-style: normal;
     font-weight: 400;
     src: local('Games'), url('https://fonts.cdnfonts.com/s/14926/Games-Italic.woff') format('woff');
-}
+} */
 
 
 .hide{
