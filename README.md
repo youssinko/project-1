@@ -1,5 +1,5 @@
 # project-1:
-                               ---------------------------- Tic - Tac - Toe Game ------------------------
+                     ---------------------------- Tic - Tac - Toe Game ------------------------
 
 This game is interaction between two Players (X and O). 
 Each player will take a turn marking one square in a grid of 9 squares.
@@ -25,3 +25,7 @@ press replay button if player wish to start new round.
 In case of no winner, message will appear with word "draw".Player have the option to press replay to play a new round or exit the game
 
 <img width="638" alt="Screen Shot 2022-11-07 at 8 50 37 PM" src="https://user-images.githubusercontent.com/113655954/200454228-bd172653-fbd9-4e77-b232-cbd83e615f38.png">
+
+
+click on the link below to start playing....
+https://youssinko.github.io/project-1/
