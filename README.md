@@ -27,5 +27,6 @@ In case of no winner, message will appear with word "draw".Player have the optio
 <img width="638" alt="Screen Shot 2022-11-07 at 8 50 37 PM" src="https://user-images.githubusercontent.com/113655954/200454228-bd172653-fbd9-4e77-b232-cbd83e615f38.png">
 
 
-click on the link below to start playing....
+CLICK on the link below to start playing....
+
 https://youssinko.github.io/project-1/
