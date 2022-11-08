@@ -74,7 +74,8 @@ enter2Btn.addEventListener('click', enter2)
 //====================================== 'Play' button =======================================
 function play() {
     gameEl.classList.remove('hide')
-    // document.querySelector('body').style.background = "URL(./images/stick-figure.gif)";
+    document.querySelector('body').style.background = "URL(./images/img3.gif) no-repeat center /cover";
+
     playBtn.classList.add('hide')
     setTimer()
 
@@ -92,8 +93,9 @@ function restartGame() {
     cells.forEach(cell =>
         cell.textContent = '')
     gameIsRunning = true
-    document.querySelector('body').style.background = ""
-    timeSecond = 5
+   // document.querySelector('body').style.background = ""
+   document.querySelector('body').style.background = "URL(./images/img3.gif) no-repeat center /cover";
+   timeSecond = 5
 
 }
 //========================= create function when player 1 select symbol, player 2 assigned automatically to the second symbol =========
@@ -194,7 +196,8 @@ function winner() {
     }
     //outside 'for loop'
     if (roundWon === true) {
-        document.querySelector('body').style.backgroundImage = "URL(./images/img1.gif)"
+        document.querySelector('body').style.background = "URL(./images/img1.gif)"
+        
         statusText.textContent = `${currentPlayer} wins!`
         gameIsRunning = false
 
@@ -206,6 +209,7 @@ function winner() {
     else if (!options.includes('')) {
         statusText.textContent = 'Draw!'
         gameIsRunning = false;
+        document.querySelector('body').style.background= "URL(./images/image.gif) no-repeat center/cover"
         restartBtn.addEventListener('click', restartGame);
         clearInterval(countdown)
     }
