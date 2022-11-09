@@ -10,12 +10,6 @@
     font-weight: 400;
     src: local('Games'), url('/css/games/Games-Italic.ttf') format('woff');
 }
-/* @font-face {
-    font-family: 'Games';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Games'), url('https://fonts.cdnfonts.com/s/14926/Games-Italic.woff') format('woff');
-} */
 
 
 .hide{
