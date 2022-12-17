@@ -28,7 +28,10 @@ In case of no winner, message will appear with word "draw".Player have the optio
 
 
 CLICK on either link below to start playing....
+
 https://tic-tac-toe-seven-swart.vercel.app/
+
 or
+
 https://youssinko.github.io/project-1/
 
